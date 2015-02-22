@@ -9,6 +9,7 @@
 ## Important Notes:
 #     - pay close attention to the capital letters in the names when typing
 #     - the matrix must be inversible
+#  Version: v1.3
 #---------------------------------------------------------------------------------------------
 #
 makeCacheMatrix <- function(x = matrix()) {
@@ -31,8 +32,8 @@ makeCacheMatrix <- function(x = matrix()) {
 #     - the matrix must be inversible
 #---------------------------------------------------------------------------------------------
 cacheSolve  <- function(x, ...) {
-   m <- x$getInverse() # getting the pre-calculated inverse matrix
-   if(!is.null(m)) {   # if it is not null than we have a pre-calculeted inverse matrix
+   m <- x$getInverse() # getting the pre-calculated inverse matrix from the cache
+   if(!is.null(m)) {   # if m is not null than we have a pre-calculated inverse matrix in cache
       message("getting cached inverse matrix")
       return(m)
    }
@@ -46,20 +47,22 @@ cacheSolve  <- function(x, ...) {
 
 ##--------------------------------------------------------------------------------------------
 ## TESTING PROCEDURES COMMENTED
-##
+## To test both functions follow the instructions bellow:
+#
 #  1- clear ALL your environment by typing:
 #     > rm(list=ls())
 #
-#  2- run ALL the script cachematrix.R in your environment by typing:
+#  2- run ALL the scripts in cachematrix.R in your environment by typing:
 #     > source("cachematrix.R")
 #
 #  3- Create an instance of the makeCacheMatrix list function by typing:
-#     >m <- makeCacheMatrix()
+#     >n <- makeCacheMatrix()
 # 
-#  4- Set the original INVERSIBLE matrix
-#     >m$setMatrix(matrix(3,3, data=c(10,40,1,50,6,7.5,4,90,25)))
+#  4- Set the original INVERSIBLE matrix (attention: the matrix must be inversible)
+#     >n$setMatrix(matrix(3,3, data=c(10,40,1,50,6,7.5,4,90,25)))
 #
 #  5- Call the function cacheSolve to get the inverse matrix (call twice to see the messages):
-#     >cacheSolve(m) # the first calculation of the inverse matrix is taken
-#     >cacheSolve(m) # the cached inverse matrix is taken
+#     >cacheSolve(n) # the first calculation of the inverse matrix is taken
+#     >cacheSolve(n) # the cached inverse matrix is taken
 #
+
